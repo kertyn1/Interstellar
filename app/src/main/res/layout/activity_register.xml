@@ -93,12 +93,14 @@
         android:id="@+id/btnGoToLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Go to Login"
-        android:textSize="18sp"
-        android:fontFamily="sans-serif-medium"
-        android:background="@drawable/glow_button"
-        android:padding="12dp"
-        android:textColor="#FFFFFF"
-        android:layout_gravity="center"
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="24dp"
+        android:text="Login -->"
+        android:textAllCaps="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:backgroundTint="#ffffff"
+        android:textColor="#673AB7"
+        android:strokeColor="#673AB7"/>
         />
 </LinearLayout>

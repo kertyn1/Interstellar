@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.view.MotionEvent;
 import android.view.View;
@@ -24,8 +25,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class LoginActivity extends AppCompatActivity {
 
     private EditText etEmail, etPassword;
-    private Button btnLogin;
-    private Button btnGoToRegister;
+    private Button btnLogin, btnGoToRegister;
+
+    private TextView btnForgotPass;
     private FirebaseAuth mAuth;
     private FirebaseFirestore firestore;
 
@@ -45,11 +47,11 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
 
-        // Initialize UI elements
         etEmail = findViewById(R.id.etLoginEmail);
         etPassword = findViewById(R.id.etLoginPassword);
         btnLogin = findViewById(R.id.btnLogin);
         btnGoToRegister = findViewById(R.id.btnGoToRegister);
+        btnForgotPass = findViewById(R.id.btnForgotPass);
 
         // Apply button animation to all buttons
         applyButtonClickAnimation(btnLogin);
@@ -57,11 +59,15 @@ public class LoginActivity extends AppCompatActivity {
 
         // Button click listener to log in the user
         btnLogin.setOnClickListener(v -> loginUser());
-
+        // Forgot Password click listener
+        btnForgotPass.setOnClickListener(v -> resetPassword());
+        //Moving to register screen click listener
         btnGoToRegister.setOnClickListener(v -> {
-            Intent loginIntent = new Intent(LoginActivity.this, RegisterActivity.class);
-            startActivity(loginIntent);
+            Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
+            startActivity(registerIntent);
         });
+
+
     }
 
     private void applyButtonClickAnimation(Button button) {
@@ -122,6 +128,24 @@ public class LoginActivity extends AppCompatActivity {
                     } else {
                         // If login fails
                         Toast.makeText(LoginActivity.this, "Login failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    private void resetPassword() {
+        String email = etEmail.getText().toString().trim();
+
+        if (email.isEmpty()) {
+            Toast.makeText(LoginActivity.this, "Enter your email to reset password", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        mAuth.sendPasswordResetEmail(email)
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(LoginActivity.this, "Reset link sent to your email", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(LoginActivity.this, "Error: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                     }
                 });
     }

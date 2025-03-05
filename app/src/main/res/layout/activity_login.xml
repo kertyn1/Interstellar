@@ -67,10 +67,41 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="@drawable/glow_button"
-        android:fontFamily="sans-serif-medium"
-        android:padding="12dp"
-        android:text="Make an account"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp" />
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="24dp"
+        android:text="Create an Account -->"
+        android:textAllCaps="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:backgroundTint="#ffffff"
+        android:textColor="#673AB7"
+        android:strokeColor="#673AB7"/>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forgot your password? "
+            android:textColor="#888888"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/btnForgotPass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reset it here"
+            android:textColor="#673AB7"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginStart="4dp"
+            android:clickable="true"
+            android:focusable="true"/>
+    </LinearLayout>
 </LinearLayout>
