@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="@drawable/gradient_background_home">
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:textSize="32sp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="sans-serif-medium"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"
+        android:shadowColor="#000000"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="5" />
+
+    <!-- Email Input -->
+    <EditText
+        android:id="@+id/etRegisterEmail"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:hint="Email"
+        android:textColorHint="#FFFFFF"
+        android:inputType="textEmailAddress"
+        android:padding="14dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_input_log"
+        android:textColor="#FFFFFF"/>
+
+    <!-- Username Input -->
+    <EditText
+        android:id="@+id/etRegisterUsername"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:hint="Username"
+        android:textColorHint="#FFFFFF"
+        android:inputType="textPersonName"
+        android:padding="14dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_input_log"
+        android:textColor="#FFFFFF"/>
+
+    <!-- Password Input -->
+    <EditText
+        android:id="@+id/etRegisterPassword"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:hint="Password"
+        android:textColorHint="#FFFFFF"
+        android:inputType="textPassword"
+        android:padding="14dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_input_log"
+        android:textColor="#FFFFFF"/>
+
+    <EditText
+        android:id="@+id/etConfirmPassword"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:hint="Confirm Password"
+        android:textColorHint="#FFFFFF"
+        android:inputType="textPassword"
+        android:padding="14dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_input_log"
+        android:textColor="#FFFFFF"/>
+
+    <!-- Register Button -->
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:textSize="18sp"
+        android:fontFamily="sans-serif-medium"
+        android:background="@drawable/glow_button"
+        android:layout_marginBottom="16dp"
+        android:padding="12dp"
+        android:textColor="#FFFFFF"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/btnGoToLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go to Login"
+        android:textSize="18sp"
+        android:fontFamily="sans-serif-medium"
+        android:background="@drawable/glow_button"
+        android:padding="12dp"
+        android:textColor="#FFFFFF"
+        android:layout_gravity="center"
+        />
+</LinearLayout>
