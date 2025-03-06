@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- Background -->
+    <!-- Main Background (Image) -->
     <LinearLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
@@ -14,7 +14,7 @@
         android:orientation="vertical"
         android:gravity="center"
         android:padding="24dp"
-        android:background="@drawable/gradient_background_log">
+        android:background="@drawable/main_activity_back">
 
         <!-- Title -->
         <TextView
@@ -64,3 +64,4 @@
     </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
