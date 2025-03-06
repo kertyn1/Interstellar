@@ -44,7 +44,7 @@ public class    HomeActivity extends AppCompatActivity {
         });
 
         btnSettings.setOnClickListener(v -> {
-            startActivity(new Intent(HomeActivity.this, SettingsActivity.class));
+            startActivity(new Intent(HomeActivity.this, SolarActivity.class));
         });
 
         //animation for button touch
@@ -87,7 +87,7 @@ public class    HomeActivity extends AppCompatActivity {
             return true;
         }
         else if (itemId == R.id.action_options) {
-            startActivity(new Intent(HomeActivity.this, SettingsActivity.class));
+            startActivity(new Intent(HomeActivity.this, SolarActivity.class));
             finish();
             return true;
         }
