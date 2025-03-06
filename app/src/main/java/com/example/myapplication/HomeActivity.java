@@ -40,7 +40,7 @@ public class    HomeActivity extends AppCompatActivity {
 
         // Set onClick listeners for navigation
         btnProfile.setOnClickListener(v -> {
-            startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
+            startActivity(new Intent(HomeActivity.this, APODActivity.class));
         });
 
         btnSettings.setOnClickListener(v -> {
@@ -92,7 +92,7 @@ public class    HomeActivity extends AppCompatActivity {
             return true;
         }
         else if (itemId == R.id.action_profile) {
-            startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
+            startActivity(new Intent(HomeActivity.this, APODActivity.class));
             finish();
             return true;
         }

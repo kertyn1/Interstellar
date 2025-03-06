@@ -88,7 +88,7 @@ public class SettingsActivity extends AppCompatActivity {
             return true;
         }
         else if (itemId == R.id.action_profile) {
-            startActivity(new Intent(SettingsActivity.this, ProfileActivity.class));
+            startActivity(new Intent(SettingsActivity.this, APODActivity.class));
             finish();
             return true;
         }
