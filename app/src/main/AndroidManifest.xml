@@ -24,12 +24,6 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".SettingsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ProfileActivity"
-            android:exported="false" />
-        <activity
             android:name=".HomeActivity"
             android:exported="false" /> <!-- Register Activity -->
         <activity

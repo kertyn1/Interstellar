@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- Main Background (Image) -->
+    <!-- Main Background (Gradient) -->
     <LinearLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
@@ -14,7 +14,7 @@
         android:orientation="vertical"
         android:gravity="center"
         android:padding="24dp"
-        android:background="@drawable/main_activity_back">
+        android:background="@drawable/background_space_gradient">
 
         <!-- Title -->
         <TextView
@@ -23,29 +23,28 @@
             android:layout_marginBottom="40dp"
             android:text="Welcome to Interstellar"
             android:textColor="@android:color/white"
-            android:textSize="28sp"
+            android:textSize="32sp"
             android:textStyle="bold"
             android:fontFamily="sans-serif-condensed"
             android:gravity="center"
-            android:shadowColor="#8000FF"
+            android:shadowColor="#6A0DAD"
             android:shadowDx="0"
             android:shadowDy="0"
-            android:shadowRadius="12"/>
+            android:shadowRadius="16" />
 
         <!-- Register Button -->
         <Button
             android:id="@+id/btnMainRegister"
             android:layout_width="250dp"
             android:layout_height="55dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="20dp"
             android:text="Register"
             android:textColor="@android:color/white"
             android:textSize="18sp"
-            android:backgroundTint="@color/purple_500"
-            android:fontFamily="sans-serif-medium"
-            android:elevation="6dp"
-            android:padding="14dp"
-            android:background="@drawable/rounded_button" />
+            android:fontFamily="sans-serif-condensed"
+            android:elevation="10dp"
+            android:background="@drawable/space_button_primary"
+            android:padding="14dp" />
 
         <!-- Login Button -->
         <Button
@@ -55,13 +54,13 @@
             android:text="Login"
             android:textColor="@android:color/white"
             android:textSize="18sp"
-            android:backgroundTint="@color/purple_700"
-            android:fontFamily="sans-serif-medium"
-            android:elevation="6dp"
-            android:padding="14dp"
-            android:background="@drawable/rounded_button" />
+            android:fontFamily="sans-serif-condensed"
+            android:elevation="10dp"
+            android:background="@drawable/space_button_secondary"
+            android:padding="14dp" />
 
     </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 

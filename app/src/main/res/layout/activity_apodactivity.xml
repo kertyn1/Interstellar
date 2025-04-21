@@ -50,6 +50,12 @@
                     android:text="Select Date"
                     android:layout_marginEnd="16dp" />
 
+                <Button
+                    android:id="@+id/readButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Read Aloud"/>
+
 
             </LinearLayout>
 
@@ -87,6 +93,8 @@
                 android:scaleType="fitCenter"
                 android:adjustViewBounds="true"
                 android:contentDescription="NASA Image of the Day"
+
+
                 android:paddingBottom="8dp" />
 
             <TextView
