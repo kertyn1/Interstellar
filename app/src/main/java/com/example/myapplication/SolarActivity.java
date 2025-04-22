@@ -72,7 +72,14 @@ public class SolarActivity extends AppCompatActivity {
 
                 if (fragment != null) {
                     getSupportFragmentManager().beginTransaction()
+                            .setCustomAnimations(
+                                    android.R.anim.fade_in,
+                                    android.R.anim.fade_out,
+                                    android.R.anim.fade_in,
+                                    android.R.anim.fade_out
+                            )
                             .replace(R.id.fragment_container, fragment)
+                            .addToBackStack(null) // allows user to press back
                             .commit();
                 }
             }

@@ -1,14 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SaturnFragment">
+    android:background="#0B0C10"
+    android:padding="16dp">
 
-    <!-- TODO: Update blank fragment layout -->
-<ImageView
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="vertical"
+android:gravity="center_horizontal"
+    android:layout_marginTop="50dp">
+
+<!-- Planet Name -->
+<TextView
+    android:id="@+id/tvPlanetName"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Saturn"
+    android:textColor="@android:color/white"
+    android:textSize="32sp"
+    android:textStyle="bold"
+    android:fontFamily="sans-serif-condensed"
+    android:shadowColor="#8000FF"
+    android:shadowDx="0"
+    android:shadowDy="0"
+    android:shadowRadius="8"
+    android:layout_marginBottom="24dp" />
+
+<!-- Planet Image inside a Card -->
+<androidx.cardview.widget.CardView
+    android:layout_width="250dp"
+    android:layout_height="250dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp"
+    android:layout_marginBottom="24dp">
+
+    <ImageView
+        android:id="@+id/planetImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/saturn" />
+</androidx.cardview.widget.CardView>
+
+<!-- Info Texts -->
+<TextView
+    android:id="@+id/tvPlanetInfo"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/saturn"/>
+    android:layout_height="wrap_content"
+    android:text="Loading planet info..."
+    android:textColor="#CCCCCC"
+    android:textSize="18sp"
+    android:fontFamily="sans-serif-medium"
+    android:lineSpacingExtra="8dp"
+    android:gravity="start"
+    android:padding="8dp"
+    android:background="#1F1F1F"
+    android:elevation="4dp"
+    android:layout_marginBottom="16dp"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="12dp"
+    android:backgroundTint="#1F1F1F"
+    android:backgroundTintMode="src_atop"
+    android:layout_marginTop="8dp" />
 
-</FrameLayout>
+</LinearLayout>
+</ScrollView>
