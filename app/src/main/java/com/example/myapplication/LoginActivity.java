@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -118,6 +119,11 @@ public class LoginActivity extends AppCompatActivity {
                                             if (document.exists()) {
                                                 // Successfully logged in
                                                 Toast.makeText(LoginActivity.this, "Welcome " + document.getString("username"), Toast.LENGTH_SHORT).show();
+                                                //saves user in SharedPreferences
+                                                SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+                                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                                editor.putString("username", document.getString("username"));
+                                                editor.apply();
                                                 // Redirect to HomeActivity
                                                 startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                                                 finish();

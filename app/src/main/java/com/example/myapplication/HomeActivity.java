@@ -35,15 +35,15 @@ public class    HomeActivity extends AppCompatActivity {
         toolbar.inflateMenu(R.menu.tool_bar_menu);
         toolbar.setOnMenuItemClickListener(item -> handleMenuItemClick(item, this));
 
-        Button btnProfile = findViewById(R.id.btnProfile);
-        Button btnSettings = findViewById(R.id.btnSettings);
+        Button btnAPOD = findViewById(R.id.btnAPOD);
+        Button btnSolar = findViewById(R.id.btnSolar);
 
         // Set onClick listeners for navigation
-        btnProfile.setOnClickListener(v -> {
-            startActivity(new Intent(HomeActivity.this, APODActivity.class));
+        btnAPOD.setOnClickListener(v -> {
+            startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
         });
 
-        btnSettings.setOnClickListener(v -> {
+        btnSolar.setOnClickListener(v -> {
             startActivity(new Intent(HomeActivity.this, SolarActivity.class));
         });
 
@@ -75,8 +75,8 @@ public class    HomeActivity extends AppCompatActivity {
         };
 
         // Apply the touch listener to both buttons
-        btnProfile.setOnTouchListener(scaleButtonTouchListener);
-        btnSettings.setOnTouchListener(scaleButtonTouchListener);
+        btnAPOD.setOnTouchListener(scaleButtonTouchListener);
+        btnSolar.setOnTouchListener(scaleButtonTouchListener);
     }
 
     private boolean handleMenuItemClick(MenuItem item, Context context) {

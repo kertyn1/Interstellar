@@ -34,7 +34,7 @@ public class SplashActivity extends Activity {
         image = findViewById(R.id.imageView);
         image.setAnimation(splashAnim);
 
-        // Delay and then launch MainActivity with a shared element transition
+        // Delay and then launch MainActivity
         new Handler().postDelayed(() -> {
             Intent intent = new Intent(SplashActivity.this, MainActivity.class);
             startActivity(intent);

@@ -41,7 +41,7 @@
 
     <!-- Profile Button -->
     <Button
-        android:id="@+id/btnProfile"
+        android:id="@+id/btnAPOD"
         android:layout_width="200dp"
         android:layout_height="60dp"
         android:text="Astornomy picture of the day!"
@@ -54,7 +54,7 @@
 
     <!-- Settings Button -->
     <Button
-        android:id="@+id/btnSettings"
+        android:id="@+id/btnSolar"
         android:layout_width="200dp"
         android:layout_height="60dp"
         android:text="Our Solar system"
