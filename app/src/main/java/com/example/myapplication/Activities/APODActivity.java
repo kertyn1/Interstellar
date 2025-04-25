@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.Activities;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
@@ -15,6 +15,10 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.myapplication.APODClient;
+import com.example.myapplication.APODResponse;
+import com.example.myapplication.R;
 import com.squareup.picasso.Picasso;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -49,11 +53,7 @@ public class APODActivity extends AppCompatActivity {
         toolbar.inflateMenu(R.menu.tool_bar_menu);
         toolbar.setOnMenuItemClickListener(item -> handleMenuItemClick(item, this));
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.nav), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0);
-            return insets;
-        });
+
 
         titleTextView = findViewById(R.id.titleTextView);
         dateTextView = findViewById(R.id.dateTextView);
@@ -131,12 +131,17 @@ public class APODActivity extends AppCompatActivity {
             finish();
             return true;
         }
-        else if (itemId == R.id.action_options) {
+        else if (itemId == R.id.action_apod) {
+            return true;
+        }
+        else if (itemId == R.id.action_solar) {
             startActivity(new Intent(APODActivity.this, SolarActivity.class));
             finish();
             return true;
         }
         else if (itemId == R.id.action_profile) {
+            startActivity(new Intent(APODActivity.this, ProfileActivity.class));
+            finish();
             return true;
         }
         return false;

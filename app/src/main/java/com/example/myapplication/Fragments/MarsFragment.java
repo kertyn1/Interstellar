@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.Fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,29 +11,31 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.myapplication.R;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class NeptuneFragment extends Fragment {
+public class MarsFragment extends Fragment {
 
     private TextView tvPlanetName, tvPlanetInfo;
     private ImageView planetImageView;
     private RequestQueue requestQueue;
 
-    public NeptuneFragment() {
+    public MarsFragment() {
         // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_neptune, container, false);
+        View view = inflater.inflate(R.layout.fragment_mars, container, false);
 
         tvPlanetName = view.findViewById(R.id.tvPlanetName);
         tvPlanetInfo = view.findViewById(R.id.tvPlanetInfo);
         planetImageView = view.findViewById(R.id.planetImageView);
-        tvPlanetName.setText("Neptune");
-        planetImageView.setImageResource(R.drawable.neptune); // Set Neptune image
+        tvPlanetName.setText("Mars");
+        planetImageView.setImageResource(R.drawable.mars); // Set Mars image
 
         requestQueue = Volley.newRequestQueue(requireContext());
         fetchPlanetData(tvPlanetInfo);
@@ -42,7 +44,7 @@ public class NeptuneFragment extends Fragment {
     }
 
     private void fetchPlanetData(TextView tvPlanetInfo) {
-        String url = "https://api.le-systeme-solaire.net/rest/bodies/neptune";
+        String url = "https://api.le-systeme-solaire.net/rest/bodies/mars";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.GET, url, null,

@@ -5,17 +5,23 @@
         android:id="@+id/action_home"
         android:icon="@drawable/baseline_home_24"
         android:title="Home"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
 
     <item
-        android:id="@+id/action_options"
+        android:id="@+id/action_apod"
         android:icon="@drawable/baseline_display_settings_24"
-        android:title="Options"
-        app:showAsAction="ifRoom" />
+        android:title="APOD"
+        app:showAsAction="always"/>
 
     <item
-        android:id="@+id/action_profile"
-        android:icon="@drawable/ic_login"
-        android:title="Profile"
-        app:showAsAction="ifRoom" />
+        android:id="@+id/action_solar"
+        android:icon="@drawable/outline_award_star_24"
+        android:title="Solar"
+        app:showAsAction="always"/>
+
+       <item
+       android:id="@+id/action_profile"
+       android:icon="@drawable/ic_login"
+       android:title="Profile"
+       app:showAsAction="always"/>
 </menu>

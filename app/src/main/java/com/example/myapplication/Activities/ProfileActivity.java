@@ -1,14 +1,21 @@
-package com.example.myapplication;
+package com.example.myapplication.Activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
+import com.example.myapplication.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -16,7 +23,7 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView tvUserName;
     private SharedPreferences sharedPreferences;
     private int[] profileImages = {
-            R.drawable.saturn, R.drawable.earth, R.drawable.mars
+            R.drawable.mercury, R.drawable.venus, R.drawable.earth, R.drawable.mars, R.drawable.jupiter, R.drawable.saturn, R.drawable.uranus, R.drawable.neptune
     };
     private int currentIndex = 0;
 
@@ -24,6 +31,10 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        Toolbar toolbar = findViewById(R.id.nav);
+        toolbar.inflateMenu(R.menu.tool_bar_menu);
+        toolbar.setOnMenuItemClickListener(item -> handleMenuItemClick(item, this));
 
         tvUserName = findViewById(R.id.tvUserName);
         imgProfile = findViewById(R.id.imgProfile);
@@ -51,5 +62,29 @@ public class ProfileActivity extends AppCompatActivity {
             startActivity(new Intent(this, MainActivity.class));
             finish();
         });
+    }
+    private boolean handleMenuItemClick(MenuItem item, Context context) {
+        if (context == null) return false;
+
+        int itemId = item.getItemId();
+        if (itemId == R.id.action_home) {
+            startActivity(new Intent(ProfileActivity.this, HomeActivity.class));
+            finish();
+            return true;
+        } else if (itemId == R.id.action_apod) {
+            startActivity(new Intent(ProfileActivity.this, APODActivity.class));
+            finish();
+            return true;
+        }
+        else if (itemId == R.id.action_solar) {
+            startActivity(new Intent(ProfileActivity.this, SolarActivity.class));
+            finish();
+            return true;
+        }
+        else if (itemId == R.id.action_profile) {
+            return true;
+        }
+
+        return false;
     }
 }

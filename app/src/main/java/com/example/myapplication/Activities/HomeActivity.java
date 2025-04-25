@@ -1,23 +1,29 @@
-package com.example.myapplication;
+package com.example.myapplication.Activities;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.animation.ObjectAnimator;
 import android.view.animation.BounceInterpolator;
 import android.widget.Button;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import android.content.SharedPreferences;
+import android.widget.TextView;
 
-public class    HomeActivity extends AppCompatActivity {
+import com.example.myapplication.R;
+
+import java.lang.reflect.Method;
+
+public class HomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +36,14 @@ public class    HomeActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        TextView tvWelcome = findViewById(R.id.welcomeText);
+
+// Get the stored username from SharedPreferences
+        SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+        String username = sharedPreferences.getString("username", "Explorer");
+
+// Update the welcome text
+        tvWelcome.setText("Welcome to Interstellar, " + username + "!");
 
         Toolbar toolbar = findViewById(R.id.nav);
         toolbar.inflateMenu(R.menu.tool_bar_menu);
@@ -40,7 +54,7 @@ public class    HomeActivity extends AppCompatActivity {
 
         // Set onClick listeners for navigation
         btnAPOD.setOnClickListener(v -> {
-            startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
+            startActivity(new Intent(HomeActivity.this, APODActivity.class));
         });
 
         btnSolar.setOnClickListener(v -> {
@@ -86,13 +100,18 @@ public class    HomeActivity extends AppCompatActivity {
         if (itemId == R.id.action_home) {
             return true;
         }
-        else if (itemId == R.id.action_options) {
+        else if (itemId == R.id.action_solar) {
             startActivity(new Intent(HomeActivity.this, SolarActivity.class));
             finish();
             return true;
         }
-        else if (itemId == R.id.action_profile) {
+        else if (itemId == R.id.action_apod) {
             startActivity(new Intent(HomeActivity.this, APODActivity.class));
+            finish();
+            return true;
+        }
+        else if (itemId == R.id.action_profile) {
+            startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
             finish();
             return true;
         }

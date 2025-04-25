@@ -1,16 +1,15 @@
-package com.example.myapplication;
+package com.example.myapplication.Activities;
 
 import android.app.Activity;
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Pair;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import com.example.myapplication.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SplashActivity extends Activity {

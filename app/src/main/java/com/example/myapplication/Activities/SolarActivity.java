@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.Activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +14,17 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
+
+import com.example.myapplication.Fragments.DefaultFragment;
+import com.example.myapplication.Fragments.EarthFragment;
+import com.example.myapplication.Fragments.JupiterFragment;
+import com.example.myapplication.Fragments.MarsFragment;
+import com.example.myapplication.Fragments.MercuryFragment;
+import com.example.myapplication.Fragments.NeptuneFragment;
+import com.example.myapplication.R;
+import com.example.myapplication.Fragments.SaturnFragment;
+import com.example.myapplication.Fragments.UranusFragment;
+import com.example.myapplication.Fragments.VenusFragment;
 
 public class SolarActivity extends AppCompatActivity {
 
@@ -103,10 +114,17 @@ public class SolarActivity extends AppCompatActivity {
             startActivity(new Intent(SolarActivity.this, HomeActivity.class));
             finish();
             return true;
-        } else if (itemId == R.id.action_options) {
-            return true;
-        } else if (itemId == R.id.action_profile) {
+        }
+        if (itemId == R.id.action_apod) {
             startActivity(new Intent(SolarActivity.this, APODActivity.class));
+            finish();
+            return true;
+        }
+        else if (itemId == R.id.action_solar) {
+            return true;
+        }
+        else if (itemId == R.id.action_profile) {
+            startActivity(new Intent(SolarActivity.this, ProfileActivity.class));
             finish();
             return true;
         }
