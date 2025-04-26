@@ -58,8 +58,18 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
         btnLogout.setOnClickListener(v -> {
+            // Sign out from Firebase
             FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(this, MainActivity.class));
+
+            // Clear saved user data
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.clear();
+            editor.apply();
+
+            // Go back to login/register screen
+            Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
             finish();
         });
     }

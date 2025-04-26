@@ -15,7 +15,7 @@
 
     <item
         android:id="@+id/action_solar"
-        android:icon="@drawable/outline_award_star_24"
+        android:icon="@drawable/baseline_star"
         android:title="Solar"
         app:showAsAction="always"/>
 

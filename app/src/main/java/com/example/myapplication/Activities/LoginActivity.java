@@ -123,6 +123,7 @@ public class LoginActivity extends AppCompatActivity {
                                                 //saves user in SharedPreferences
                                                 SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
                                                 SharedPreferences.Editor editor = sharedPreferences.edit();
+                                                editor.putBoolean("isLoggedIn", true);
                                                 editor.putString("username", username);
                                                 editor.apply();
                                                 // Redirect to HomeActivity
