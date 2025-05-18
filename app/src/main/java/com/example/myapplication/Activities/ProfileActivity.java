@@ -41,32 +41,25 @@ public class ProfileActivity extends AppCompatActivity {
         Button btnChangePic = findViewById(R.id.btnChangePic);
         Button btnLogout = findViewById(R.id.btnLogout);
 
-        // Load from SharedPreferences
+        // Load from
         sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         currentIndex = sharedPreferences.getInt(uid + "_profilePicIndex", 0);
         imgProfile.setImageResource(profileImages[currentIndex]);
 
-        // Load name from SharedPreferences instead of Firebase
+        // Load name
         String username = sharedPreferences.getString("username", "User");
         tvUserName.setText("Hello, " + username);
 
+        //change profile pic
         btnChangePic.setOnClickListener(v -> {
             currentIndex = (currentIndex + 1) % profileImages.length;
             imgProfile.setImageResource(profileImages[currentIndex]);
             sharedPreferences.edit().putInt(uid + "_profilePicIndex", currentIndex).apply();
         });
-
+        //logout
         btnLogout.setOnClickListener(v -> {
-            // Sign out from Firebase
             FirebaseAuth.getInstance().signOut();
-
-            // Clear saved user data
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.clear();
-            editor.apply();
-
-            // Go back to login/register screen
             Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);

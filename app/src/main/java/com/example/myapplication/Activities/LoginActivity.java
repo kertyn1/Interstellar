@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
             return insets;
         });
 
-        // Initialize Firebase Auth and Firestore
+
         mAuth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
 
@@ -58,11 +58,11 @@ public class LoginActivity extends AppCompatActivity {
         applyButtonClickAnimation(btnLogin);
         applyButtonClickAnimation(btnGoToRegister);
 
-        // Button click listener to log in the user
+        //log in the user
         btnLogin.setOnClickListener(v -> loginUser());
-        // Forgot Password click listener
+        //Forgot Password
         btnForgotPass.setOnClickListener(v -> resetPassword());
-        //Moving to register screen click listener
+        //Moving to register screen
         btnGoToRegister.setOnClickListener(v -> {
             Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
             startActivity(registerIntent);
@@ -110,7 +110,6 @@ public class LoginActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         FirebaseUser user = mAuth.getCurrentUser();
                         if (user != null) {
-                            // Fetch user data from Firestore
                             firestore.collection("users").document(user.getUid())
                                     .get()
                                     .addOnCompleteListener(dataTask -> {

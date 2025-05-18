@@ -1,6 +1,7 @@
 package com.example.myapplication.Activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -123,19 +124,27 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void saveUserToFirestore(String uid, String email, String username) {
-        // Create a map to store user data
         Map<String, Object> userData = new HashMap<>();
         userData.put("email", email);
         userData.put("username", username);
 
-        // Save user data in Firestore
         firestore.collection("users").document(uid)
                 .set(userData)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        Toast.makeText(RegisterActivity.this, "User created successfully", Toast.LENGTH_SHORT).show();
-                        // Redirect to LoginActivity
-                        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                        // Save user info in SharedPreferences
+                        SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putBoolean("isLoggedIn", true);
+                        editor.putString("username", username);
+                        editor.apply();
+
+                        Toast.makeText(RegisterActivity.this, "Welcome " + username, Toast.LENGTH_SHORT).show();
+
+                        // Go to HomeActivity
+                        Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
                         finish();
                     } else {
                         String errorMessage = task.getException() != null ? task.getException().getMessage() : "Error saving user data.";
