@@ -25,6 +25,7 @@ import com.example.myapplication.R;
 import com.example.myapplication.Fragments.SaturnFragment;
 import com.example.myapplication.Fragments.UranusFragment;
 import com.example.myapplication.Fragments.VenusFragment;
+import com.example.myapplication.ToolbarUtils;
 
 public class SolarActivity extends AppCompatActivity {
 
@@ -41,6 +42,7 @@ public class SolarActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.nav);
         toolbar.inflateMenu(R.menu.tool_bar_menu);
+        ToolbarUtils.applyProfileIconToToolbar(toolbar, this);
         toolbar.setOnMenuItemClickListener(item -> handleMenuItemClick(item, this));
 
         if (savedInstanceState == null) {

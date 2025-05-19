@@ -20,6 +20,7 @@ import android.content.SharedPreferences;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.ToolbarUtils;
 
 import java.lang.reflect.Method;
 
@@ -47,6 +48,7 @@ public class HomeActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.nav);
         toolbar.inflateMenu(R.menu.tool_bar_menu);
+        ToolbarUtils.applyProfileIconToToolbar(toolbar, this); // ✅ Apply custom profile icon
         toolbar.setOnMenuItemClickListener(item -> handleMenuItemClick(item, this));
 
         Button btnAPOD = findViewById(R.id.btnAPOD);

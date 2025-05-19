@@ -16,6 +16,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.myapplication.R;
+import com.example.myapplication.ToolbarUtils;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -34,6 +35,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.nav);
         toolbar.inflateMenu(R.menu.tool_bar_menu);
+        ToolbarUtils.applyProfileIconToToolbar(toolbar, this);
         toolbar.setOnMenuItemClickListener(item -> handleMenuItemClick(item, this));
 
         tvUserName = findViewById(R.id.tvUserName);
@@ -41,9 +43,9 @@ public class ProfileActivity extends AppCompatActivity {
         Button btnChangePic = findViewById(R.id.btnChangePic);
         Button btnLogout = findViewById(R.id.btnLogout);
 
-        // Load from
         sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        //load current profile picture
         currentIndex = sharedPreferences.getInt(uid + "_profilePicIndex", 0);
         imgProfile.setImageResource(profileImages[currentIndex]);
 
@@ -55,7 +57,9 @@ public class ProfileActivity extends AppCompatActivity {
         btnChangePic.setOnClickListener(v -> {
             currentIndex = (currentIndex + 1) % profileImages.length;
             imgProfile.setImageResource(profileImages[currentIndex]);
-            sharedPreferences.edit().putInt(uid + "_profilePicIndex", currentIndex).apply();
+            sharedPreferences.edit().putInt(uid + "_profilePicIndex", currentIndex).putBoolean(uid + "_hasChangedProfilePic", true).apply();
+            //update icon in real time
+            ToolbarUtils.applyProfileIconToToolbar(toolbar, ProfileActivity.this);
         });
         //logout
         btnLogout.setOnClickListener(v -> {

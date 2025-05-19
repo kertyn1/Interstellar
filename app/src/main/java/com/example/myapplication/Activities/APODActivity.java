@@ -19,6 +19,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.myapplication.APODClient;
 import com.example.myapplication.APODResponse;
 import com.example.myapplication.R;
+import com.example.myapplication.ToolbarUtils;
 import com.squareup.picasso.Picasso;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -51,6 +52,7 @@ public class APODActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.nav);
         toolbar.inflateMenu(R.menu.tool_bar_menu);
+        ToolbarUtils.applyProfileIconToToolbar(toolbar, this);
         toolbar.setOnMenuItemClickListener(item -> handleMenuItemClick(item, this));
 
 

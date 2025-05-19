@@ -28,10 +28,10 @@
             android:exported="false" />
         <activity
             android:name=".Activities.HomeActivity"
-            android:exported="false" /> <!-- Register Activity -->
+            android:exported="false" />
         <activity
             android:name=".Activities.RegisterActivity"
-            android:exported="false" /> <!-- Login Activity -->
+            android:exported="false" />
         <activity
             android:name=".Activities.LoginActivity"
             android:exported="false" />
